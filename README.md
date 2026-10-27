@@ -12,6 +12,6 @@ The site is plain HTML and CSS with no build step, JavaScript, third-party scrip
 
 ## License
 
-LocalGit Studio is offered under PolyForm Strict 1.0.0 for noncommercial purposes. Commercial use is not granted, and the license does not permit distributing the software or making changes or new works based on it. Jeet Tiwari is the licensor. See [`LICENSE`](LICENSE) for the full terms.
+LocalGit Studio is offered under PolyForm Strict 1.0.0 for noncommercial purposes. Commercial use is not granted, and the license does not permit distributing the software or making changes or new works based on it. Jeet Tiwari is the licensor. See [`LICENSE.txt`](LICENSE.txt) to read the terms on the website, or [`LICENSE`](LICENSE) for the canonical repository copy.
 
 The website is informational only. It does not provide an online editor or an application download.
