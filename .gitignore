@@ -3,8 +3,48 @@
 Thumbs.db
 .vscode/
 
-# Credentials and private keys
+# Dependencies and generated output
+node_modules/
+**/node_modules/
+frontend/dist/
+coverage/
+backend/test/helpers/.tmp-localgit-fixture-*/
+release-artifacts/
+*.log
+
+# Environment files and local application settings
 .env
 .env.*
+!.env.example
+!.env.*.example
+.localgit-studio.env
+.localgit-studio.env.*
+!.localgit-studio.env.example
+.local/
+
+# Credentials and private keys
+.aws/
+.ssh/
+.docker/
+.kube/
+.gnupg/
+.config/
+credentials/
 *.pem
 *.key
+*.p12
+*.pfx
+**/id_rsa
+**/id_ed25519
+**/id_ecdsa
+**/id_dsa
+**/id_ecdsa_sk
+**/id_ed25519_sk
+**/.npmrc
+**/.pypirc
+**/.netrc
+**/.git-credentials
+**/credentials.json
+**/service-account.json
+**/kubeconfig
+.vercel/

@@ -19,7 +19,7 @@
       </a>
       <nav aria-label="Main navigation">
         <a href="#about">About</a>
-        <a href="#principles">Principles</a>
+        <a href="#get-started">Get started</a>
         <a href="#license">License</a>
       </nav>
       <a class="header-link" href="https://github.com/JeetTiwari2107/Exploring-Tech" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
@@ -32,10 +32,10 @@
           <h1 id="hero-title">Git, close to <span>the code.</span></h1>
           <p class="hero-lede">A focused workspace for real repositories on your computer. Review changes, work with branches, and keep using the editor you already trust.</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#about">Explore the project <span aria-hidden="true">↓</span></a>
+            <a class="button button-primary" href="#get-started">Try it locally <span aria-hidden="true">↓</span></a>
             <a class="button button-quiet" href="#license">Read the license</a>
           </div>
-          <p class="hero-note">Your repository stays on your machine. Git remains the source of truth.</p>
+          <p class="hero-note">Run it locally. Your repository stays on your machine.</p>
         </div>
         <div class="hero-art" aria-label="Illustration of a local project connected to Git and an editor" role="img">
           <div class="art-orbit orbit-one"></div>
@@ -50,7 +50,7 @@
 
       <section class="notice" aria-label="Website scope">
         <span class="notice-icon" aria-hidden="true">i</span>
-        <p><strong>About this website</strong> This is a public information and license page. It does not run Git, access your files, or provide an app download.</p>
+        <p><strong>Run LocalGit Studio on your computer.</strong> This GitHub Pages site is static. The public source and local setup steps are in the repository; the app itself works with a folder you explicitly select.</p>
       </section>
 
       <section class="section about-section" id="about" aria-labelledby="about-title">
@@ -77,6 +77,21 @@
           </article>
         </div>
       </section>
+      <section class="section start-section" id="get-started" aria-labelledby="start-title">
+        <div class="section-heading">
+          <p class="eyebrow">Try it on your computer</p>
+          <h2 id="start-title">Start with a local Git repository.</h2>
+          <p>Install Node.js 22.12+ and Git 2.40+, then clone the public source and launch the local app.</p>
+        </div>
+        <div class="start-panel">
+          <pre><code>git clone https://github.com/JeetTiwari2107/Exploring-Tech.git
+cd Exploring-Tech
+npm run setup
+npm start -- --repo "C:\work\your-project"</code></pre>
+          <p>Then open <a href="http://127.0.0.1:3000">http://127.0.0.1:3000</a>. To browse repositories under a workspace folder, use <code>npm start -- --root "D:\workspaces"</code>.</p>
+          <a class="start-source" href="https://github.com/JeetTiwari2107/Exploring-Tech#localgit-studio" target="_blank" rel="noopener noreferrer">View source and full setup guide <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
 
       <section class="principles" id="principles" aria-labelledby="principles-title">
         <div class="principles-copy">
@@ -95,7 +110,7 @@
         <div class="license-copy">
           <p class="eyebrow">Usage terms</p>
           <h2 id="license-title">PolyForm Strict 1.0.0</h2>
-          <p>LocalGit Studio is offered for noncommercial purposes only. Commercial use is not granted. The license also does not permit distributing the software or making changes or new works based on it.</p>
+          <p>PolyForm Strict 1.0.0 permits noncommercial use such as personal study and testing. It does not grant permission to distribute the software or make changes or new works based on it. Source visibility does not remove those limits.</p>
           <p class="license-owner">Copyright © 2026 Jeet Tiwari. Jeet Tiwari is the licensor of LocalGit Studio. Third-party components, if any, remain under their own licenses.</p>
         </div>
         <a class="license-link" href="LICENSE.txt">Read the full license <span aria-hidden="true">↗</span></a>
@@ -104,7 +119,7 @@
 
     <footer class="site-footer">
       <a class="brand footer-brand" href="#top"><span class="brand-mark" aria-hidden="true">L</span><span>LocalGit <strong>Studio</strong></span></a>
-      <p>Made for local work. © 2026 Jeet Tiwari.</p>
+      <p>LocalGit Studio source is public under PolyForm Strict 1.0.0. © 2026 Jeet Tiwari.</p>
       <a href="https://github.com/JeetTiwari2107/Exploring-Tech" target="_blank" rel="noopener noreferrer">View repository <span aria-hidden="true">↗</span></a>
     </footer>
   </body>

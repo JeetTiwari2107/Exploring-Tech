@@ -1,0 +1,28 @@
+name: Bug report
+description: Report a reproducible problem in LocalGit Studio.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Do not include secrets, repository contents, credentials, or absolute local paths.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Include the expected behavior and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Use a disposable repository and redact private remote details.
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Node.js, Git, and operating system versions
+    validations:
+      required: true
