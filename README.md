@@ -42,7 +42,7 @@ S3 is optional personal backup storage, not a Git remote or shared Git LFS servi
 
 ## Security
 
-The app requires an explicit `--repo` or `--root`, binds to `127.0.0.1`, validates local Host/Origin requests, and protects API mutations with a per-process CSRF token. Workspace path checks reject traversal and symlink escapes. Sensitive files cannot be staged or backed up through the app; Git subprocesses have bounded output and timeouts. Do not expose the local server through a tunnel or reverse proxy.
+The app requires an explicit `--repo` or `--root`, binds to `127.0.0.1`, validates local Host/Origin requests, and protects API mutations with a per-process CSRF token, and limits API traffic to 300 requests per minute per local client. Workspace path checks reject traversal and symlink escapes. Sensitive files cannot be staged or backed up through the app; Git subprocesses have bounded output and timeouts. Do not expose the local server through a tunnel or reverse proxy.
 
 GitHub Actions run tests, a production build, dependency audits, a Git-history secret scan, and CodeQL analysis. Read [SECURITY.md](SECURITY.md) for vulnerability reporting and security details.
 

@@ -32,7 +32,10 @@ export async function resolveRepoPath(selectedRoot, candidate) {
 
   const root = await realpath(selectedRoot);
   const unresolved = path.resolve(root, candidate);
-  if (!isWithin(root, unresolved)) throw new Error('Repository path is outside the selected root.');
+  const unresolvedRelative = path.relative(root, unresolved);
+  if (unresolvedRelative === '..' || unresolvedRelative.startsWith(`..${path.sep}`) || path.isAbsolute(unresolvedRelative)) {
+    throw new Error('Repository path is outside the selected root.');
+  }
 
   let target;
   try {
@@ -40,7 +43,10 @@ export async function resolveRepoPath(selectedRoot, candidate) {
   } catch {
     throw new Error('Repository path does not exist inside the selected root.');
   }
-  if (!isWithin(root, target)) throw new Error('Repository path resolves outside the selected root.');
+  const targetRelative = path.relative(root, target);
+  if (targetRelative === '..' || targetRelative.startsWith(`..${path.sep}`) || path.isAbsolute(targetRelative)) {
+    throw new Error('Repository path resolves outside the selected root.');
+  }
   const info = await lstat(target);
   if (!info.isDirectory()) throw new Error('Repository path must identify a directory.');
   if (!(await isGitRepository(target))) throw new Error('Selected path is not a Git repository.');

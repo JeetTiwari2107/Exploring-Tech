@@ -7,8 +7,8 @@ import path from 'node:path';
 import { createApp } from '../src/app.js';
 import { createTempDirectory } from './helpers/git-fixture.js';
 
-async function createServer(t, workspace) {
-  const server = createApp({ workspace }).listen(0, '127.0.0.1');
+async function createServer(t, workspace, options = {}) {
+  const server = createApp({ workspace, ...options }).listen(0, '127.0.0.1');
   try {
     await new Promise((resolve, reject) => {
       server.once('listening', resolve);
@@ -128,4 +128,15 @@ test('the HTTP initialize action creates a Git repository without deleting exist
   assert.equal(initialized.response.status, 201);
   assert.equal((await readFile(path.join(root, 'keep.txt'), 'utf8')), 'preserve');
   assert.equal((await request(base, '/api/workspace/status')).data.branch, 'main');
+}));
+test('API rate limiter rejects excess requests from a local client', async (t) => runWithLocalHttpSkip(t, async () => {
+  const root = await createTempDirectory(t, '.tmp-localgit-rate-limit-');
+  const base = await createServer(t, { root, mode: 'root' }, { apiRateLimit: 1 });
+  if (typeof base !== 'string') return;
+  const accepted = await request(base, '/api/session');
+  assert.equal(accepted.response.status, 200);
+  const limited = await request(base, '/api/session');
+  assert.equal(limited.response.status, 429);
+  assert.equal(limited.data.error, 'LOCAL_REQUEST_RATE_LIMIT');
+  assert.ok(limited.response.headers['retry-after']);
 }));

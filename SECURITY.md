@@ -14,7 +14,7 @@ Include the affected component, impact, reproducible steps, and any suggested mi
 
 ## Security design notes
 
-- The API accepts an explicit local root and does not expose shell execution, arbitrary Git commands, or arbitrary file reads.
+- API requests are rate-limited per local client. The API accepts an explicit local root and does not expose shell execution, arbitrary Git commands, or arbitrary file reads.
 - Git subprocesses use fixed argument arrays, noninteractive credentials, output limits, and timeouts.
 - S3 credentials use the AWS SDK provider chain on the local process. The browser never receives credentials or signed URLs.
 - S3 restore previews bind overwrite confirmation to exact repository-relative paths and verify content hashes before writing.

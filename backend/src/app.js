@@ -2,6 +2,7 @@ import { randomBytes, timingSafeEqual } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import express from 'express';
+import { rateLimit } from 'express-rate-limit';
 import { createWorkspaceRouter } from './routes/workspaces.js';
 import { createBackupRouter } from './routes/backups.js';
 import { createBackupService } from './storage/backup-service.js';
@@ -85,7 +86,7 @@ export function createConcurrencyGuard(limit = 24) {
   };
 }
 
-export function createApp({ workspace, csrfToken = createCsrfToken() } = {}) {
+export function createApp({ workspace, csrfToken = createCsrfToken(), apiRateLimit = 300 } = {}) {
   if (!workspace?.root || !['root', 'repo'].includes(workspace.mode)) throw new Error('A validated workspace selection is required.');
   let backupConfig;
   let backupConfigurationError = false;
@@ -95,6 +96,13 @@ export function createApp({ workspace, csrfToken = createCsrfToken() } = {}) {
   app.disable('x-powered-by');
   app.use(securityHeaders);
   app.use(localRequestGuard);
+  app.use('/api', rateLimit({
+    windowMs: 60 * 1000,
+    limit: apiRateLimit,
+    standardHeaders: 'draft-8',
+    legacyHeaders: false,
+    message: { error: 'LOCAL_REQUEST_RATE_LIMIT' },
+  }));
   app.use(createConcurrencyGuard());
   app.use((req, res, next) => {
     if (req.path.startsWith('/api/') && mutationMethods.has(req.method) && !hasValidCsrfToken(req.get('x-localgit-csrf'), csrfToken)) {

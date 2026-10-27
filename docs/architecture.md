@@ -12,7 +12,7 @@ LocalGit Studio is a single-machine developer tool. Its public GitHub Pages site
 
 ## Boundaries
 
-- The API rejects non-local Host/Origin requests, uses a per-process CSRF token for mutations, bounds input and Git output, and provides a fixed Git operation set without shell execution.
+- The API rejects non-local Host/Origin requests, limits API traffic to 300 requests per minute per local client, uses a per-process CSRF token for mutations, bounds input and Git output, and provides a fixed Git operation set without shell execution.
 - Workspace paths are resolved within the selected root; traversal and symlink escapes are rejected.
 - AWS credentials stay in the local process through the AWS SDK provider chain. They are not sent to the browser or written into backup manifests.
 - Restore previews hash selected files and require an explicit confirmation before replacing a changed local file.
