@@ -1,0 +1,10 @@
+# Local machine files
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Credentials and private keys
+.env
+.env.*
+*.pem
+*.key
