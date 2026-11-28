@@ -1,3 +1,25 @@
+# Exploring-Tech — Open-Source Projects & Lab
+
+> Maintained by **Jeet Tiwari** · [Portfolio](https://jeet-tiwari-portfolio.pages.dev/) · [LinkedIn](https://www.linkedin.com/in/jeet-tiwari/) · [GitHub](https://github.com/JeetTiwari2107)
+
+A structured open-source workspace housing **LocalGit Studio** and upcoming technical explorations under [`projects/`](./projects/README.md).
+
+## Open-Source Projects & Explorations
+
+| Project | Location | Description |
+| :--- | :--- | :--- |
+| **LocalGit Studio** | [`/`](./) *(below)* | Local-first Git workspace for working with real repositories alongside VS Code, with optional personal S3 backups |
+| **New Explorations** | [`./projects/`](./projects/README.md) | Structured directory for upcoming open-source projects, AI/data tools, and utilities |
+
+### Related Open-Source Contributions & Forks
+- [`debezium`](https://github.com/JeetTiwari2107/debezium) — Distributed change data capture (CDC) platform
+- [`debezium-ai-python`](https://github.com/JeetTiwari2107/debezium-ai-python) — Python AI integrations for Debezium
+- [`deepchem`](https://github.com/JeetTiwari2107/deepchem) — Deep learning for chemistry and scientific ML
+
+**Quick Links:** [Contributing Guide](./CONTRIBUTING.md) · [Project Index](./projects/README.md) · [Security Policy](./SECURITY.md) · [Code of Conduct](./CODE_OF_CONDUCT.md)
+
+---
+
 # LocalGit Studio
 
 **A local-first Git workspace for developers.** Review and manage real Git repositories on your computer while continuing to edit the same files in VS Code or another editor. Git stays authoritative; optional S3-compatible storage is for manual personal backups of files you select.
